@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/sujpdo/extract-pdf-by-coordinates#readme",
   "dependencies": {
+    "lodash.inrange": "^3.3.6",
     "lodash.sortby": "^4.7.0",
     "pdf.js-extract": "^0.1.0"
   }

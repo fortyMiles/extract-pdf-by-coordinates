@@ -2,7 +2,31 @@
 
 Extract text from a specific area by coordinates in PDF files.
 
+```console
+$ npm install extract-pdf-by-coordinates
+```
+
+---
+
 ## Usage
+
+### `convert(file, options)`
+
+- `file`: string of the PDF file path
+- `options`: object with [PDF.js options](https://github.com/ffalt/pdf.js-extract#options)
+
+Returns a Promise which resolves into an array where each item is a page from the PDF. Each page is an array which contains all the text elements extracted from it. The text elements are objects with `x`, `y`, and `str` properties.
+
+### `extract(page, start, end)`
+
+- `page`: array of text elements
+- `start` & `end`: object with `x` and `y` properties
+
+Returns a string which contains the texts extracted from the set of coordinates. Texts are separated by a new line.
+
+---
+
+## Example
 
 A good case for where this will be useful is if you are working with PDF files which have a consistent template, like bills for example.
 

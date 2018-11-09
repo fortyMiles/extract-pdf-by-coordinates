@@ -1,6 +1,6 @@
 {
   "name": "extract-pdf-by-coordinates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extract text from a specific area by coordinates in PDF files.",
   "main": "lib/index.js",
   "scripts": {

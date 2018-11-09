@@ -6,25 +6,25 @@ Extract text from a specific area by coordinates in PDF files.
 $ npm install extract-pdf-by-coordinates
 ```
 
----
+Utilizes [pdf.js-extract](https://github.com/ffalt/pdf.js-extract). OCR is not supported.
 
 ## Usage
 
 ### `convert(file, options)`
 
 - `file`: string of the PDF file path
-- `options`: object with [PDF.js options](https://github.com/ffalt/pdf.js-extract#options)
+- `options`: object with [pdf.js options](https://github.com/ffalt/pdf.js-extract#options)
 
 Returns a Promise which resolves into an array where each item is a page from the PDF. Each page is an array which contains all the text elements extracted from it. The text elements are objects with `x`, `y`, and `str` properties.
 
 ### `extract(page, start, end)`
 
 - `page`: array of text elements
-- `start` & `end`: object with `x` and `y` properties
+- `start` & `end`: object with `x` and `y` properties which are numbers that consist of **point (pt) units** (not px)
 
 Returns a string which contains the texts extracted from the set of coordinates. Texts are separated by a new line.
 
----
+You can use [GIMP](https://github.com/GNOME/gimp) to view your PDF files using pt units.
 
 ## Example
 
@@ -36,7 +36,7 @@ Given that all of the files have the same structure, we can simply pinpoint the 
 
 ![Electricity bill example](https://raw.githubusercontent.com/sujpdo/extract-pdf-by-coordinates/master/Electricity%20bill%20example.png)
 
-In this case, since we only care about the total kW⋅h of each electricity bill, our set of coordinates will only include one text element. But normally if you wish to extract a group of text elements, the module will return everything inside your defined coordinates with each text element separated by line.
+In this case, since we only care about the total kW⋅h of each electricity bill, our set of coordinates will only include one text element. But normally if you wish to extract a group of text elements, the module will return everything inside your defined coordinates with each text element separated by a new line.
 
 ```javascript
 import { convert, extract } from "extract-pdf-by-coordinates"
@@ -53,6 +53,7 @@ convert("./bills.pdf")
       )
       totalConsumed += monthConsumption
     }
+    console.log(totalConsumed)
   })
   .catch(error => {
     console.log(error)

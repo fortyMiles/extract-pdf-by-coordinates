@@ -59,3 +59,7 @@ convert("./bills.pdf")
     console.log(error)
   })
 ```
+
+## To-do
+
+- [ ] Support for other units like `px`, `cm`, `in`, `%`

@@ -46,15 +46,15 @@ let totalConsumed = 0
 convert("./bills.pdf")
   .then(pages => {
     for (const page of pages) {
-      const monthConsumption = extract(
+      let monthConsumption = extract(
         page,
-        { x: 300, y: 520 },
-        { x: 345, y: 540 }
+        { x: 300, y: 520 }, // Start position
+        { x: 345, y: 540 } // End position
       )
 
-      // Remove commas from the extracted value
+      // Here we need to remove commas from the extracted value,
       monthConsumption = monthConsumption.split(",").join("")
-      // and then convert the string to number
+      // and then convert the string to number.
       monthConsumption = parseFloat(monthConsumption)
 
       totalConsumed += monthConsumption

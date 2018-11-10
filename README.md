@@ -51,8 +51,15 @@ convert("./bills.pdf")
         { x: 300, y: 520 },
         { x: 345, y: 540 }
       )
+
+      // Remove commas from the extracted value
+      monthConsumption = monthConsumption.split(",").join("")
+      // and then convert the string to number
+      monthConsumption = parseFloat(monthConsumption)
+
       totalConsumed += monthConsumption
     }
+
     console.log(totalConsumed)
   })
   .catch(err => {

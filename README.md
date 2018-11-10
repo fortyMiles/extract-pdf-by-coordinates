@@ -55,11 +55,11 @@ convert("./bills.pdf")
     }
     console.log(totalConsumed)
   })
-  .catch(error => {
-    console.log(error)
+  .catch(err => {
+    console.log(err)
   })
 ```
 
-## To-do
+## Todo
 
 - [ ] Support for other units like `px`, `cm`, `in`, `%`

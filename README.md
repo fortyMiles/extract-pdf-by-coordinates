@@ -39,7 +39,7 @@ Given that all of the files have the same structure, we can simply pinpoint the 
 In this case, since we only care about the total kW⋅h of each electricity bill, our set of coordinates will only include one text element. But normally if you wish to extract a group of text elements, the module will return everything inside your defined coordinates with each text element separated by a new line.
 
 ```javascript
-import { convert, extract } from "extract-pdf-by-coordinates"
+const { convert, extract } = require("extract-pdf-by-coordinates")
 
 let totalConsumed = 0
 
